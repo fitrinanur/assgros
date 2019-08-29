@@ -14,15 +14,17 @@
 Route::get('/','Auth\LoginController@showLoginForm');//diluar folder controller
 Auth::routes();
 Route::get('home', 'HomeController@index')->name('home');
-Route::get('barang', 'BarangController@index');
-Route::get('barang/create', 'BarangController@create');
-Route::post('barang/create', 'BarangController@store')->name('barang.store');
-Route::get('barang/edit/{id}', 'BarangController@edit');
-Route::post('barang/edit/{id}', 'BarangController@update');
-Route::get('barang/import', 'BarangController@import');
-Route::post('barang/import', 'BarangController@doImport');
-Route::get('barang/export', 'BarangController@export');
-Route::get('barang/delete/{id}', 'BarangController@delete');
+Route::get('transaction', 'TransactionController@index')->name('transaction.index');
+Route::get('transaction/create', 'TransactionController@create')->name('transaction.create');
+Route::post('transaction/create', 'TransactionController@store')->name('transaction.store');
+Route::get('transaction/edit/{id}', 'TransactionController@edit');
+Route::post('transaction/edit/{id}', 'TransactionController@update');
+Route::get('transaction/import', 'TransactionController@import');
+Route::post('transaction/import', 'TransactionController@doImport');
+Route::get('transaction/export', 'TransactionController@export');
+Route::get('transaction/delete/{id}', 'TransactionController@delete');
+
+Route::post('stuff/stuffs.json', 'TransactionController@getCategory');
 
 Route::get('rule', 'RuleController@index');
 Route::post('rule/proses', 'RuleController@proses');
@@ -41,3 +43,13 @@ Route::post('toko/create', 'TokoController@store');
 Route::get('toko/edit/{id}', 'TokoController@edit');
 Route::post('toko/edit/{id}', 'TokoController@update');
 Route::get('toko/delete/{id}', 'TokoController@delete');
+
+Route::get('stuff', 'StuffController@index')->name('stuff.index');
+Route::get('stuff/create', 'StuffController@create')->name('stuff.create');
+Route::post('stuff/create', 'StuffController@store')->name('stuff.store');
+Route::get('stuff/edit/{id}', 'StuffController@edit')->name('stuff.edit');
+Route::post('stuff/edit/{id}', 'StuffController@update')->name('stuff.update');
+Route::get('stuff/destroy/{id}', 'StuffController@destroy')->name('stuff.delete');
+
+Route::get('report', 'ReportController@index')->name('report.index');
+Route::get('report/download','ReportController@export')->name('report.export');

@@ -1,14 +1,18 @@
 @extends('layouts.app') @section('content')
 <div class="container">
-    <div class="col-lg-5" style="margin: 60px 0 0 300px">
+    <div class="col-lg-5" style="margin: 30px 0 0 300px">
         <div class="card-box">
             <div class="header-text" style="text-align :center; background-color:#067DC6; color: white">
                 <div>
                     <p>
                     <br/>
                     <img src="img/sinus.png" alt="" width="110px" height="110px" /> </p>
-                    <p>Prediksi Stok Barang Menggunakan
-                        <br>Algoritma Apriori</p>
+                    <p>Analisis Sistem Asosiasi Barang dengan Metode Apriori <br/>Studi Kasus : Minimarket Asgross Permata Pandean</p>
+
+                    <div class="writter" style="text-align:center">
+                        <p>oleh :<br/>
+                        Himawan Wibisono <br/> 13.5.00056</p>
+                    </div>
                 </div>
                 <br/>
             </div>

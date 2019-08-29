@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Barang;
+use App\Transaction;
 use App\Frequent;
 use App\Rule;
 use App\Setting;
@@ -12,15 +12,15 @@ use Phpml\Association\Apriori;
 class RuleController extends Controller
 {
     private $setting;
-    private $barang;
+    private $transaction;
     private $rule;
     private $frequent;
 
-    public function __construct(Setting $setting, Barang $barang, Rule $rule, Frequent $frequent)
+    public function __construct(Setting $setting, Transaction $transaction, Rule $rule, Frequent $frequent)
     {
         $this->middleware('auth');
         $this->setting = $setting;
-        $this->barang = $barang;
+        $this->transaction = $transaction;
         $this->rule = $rule;
         $this->frequent = $frequent;
     }
@@ -59,7 +59,7 @@ class RuleController extends Controller
 
         $labels = [];
         $associator = new Apriori($request->min_sup/100, $request->min_conf/100);
-        $associator->train($this->barang->getData(), $labels);
+        $associator->train($this->transaction->getData(), $labels);
         // dd($associator);
         $rules = $associator->getRules();
         
@@ -77,7 +77,7 @@ class RuleController extends Controller
         $this->rule->truncate();
         $this->rule->insert($rules);
 
-        $freqs = $this->barang->freqItem($request->min_sup);
+        $freqs = $this->transaction->freqItem($request->min_sup);
         $this->frequent->truncate();
         $this->frequent->insert($freqs);
 

@@ -6,18 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Apriori Referensi Pembelian Stok">
     <meta name="author" content="Nur Fitrina">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="assets/css/bootstrap.css" rel="stylesheet">
     {{-- adminto theme --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/adminto.css') }}" rel="stylesheet" type="text/css" media="screen">
     @stack('style')
 
     {{-- <!-- Custom styles for this template -->
     <link href="{{asset('css/style2.css') }}" rel="stylesheet">
     <link href="{{asset('css/style-responsive.css') }}" rel="stylesheet"> --}}
-
+    
     <style>
     .logo{
         letter-spacing: 3px;
@@ -46,17 +48,17 @@
 {{-- adminto js --}}
 <!-- jQuery  -->
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/adminto/jquery.min.js') }}"></script>
-<script src="{{ asset('js/adminto/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/adminto/switchery.min.js') }}"></script>
-<script src="{{ asset('js/adminto/detect.js') }}"></script>
-<script src="{{ asset('js/adminto/fastclick.js') }}"></script>
-<script src="{{ asset('js/adminto/jquery.slimscroll.js') }}"></script>
-<script src="{{ asset('js/adminto/jquery.blockUI.js') }}"></script>
-<script src="{{ asset('js/adminto/waves.js') }}"></script>
-<script src="{{ asset('js/adminto/wow.min.js') }}"></script>
-<script src="{{ asset('js/adminto/jquery.nicescroll.js') }}"></script>
-<script src="{{ asset('js/adminto/jquery.scrollTo.min.js') }}"></script>
+{{-- <script src="{{ asset('js/adminto/jquery.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/adminto/bootstrap.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/adminto/switchery.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/adminto/detect.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/adminto/fastclick.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/adminto/jquery.slimscroll.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/adminto/jquery.blockUI.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/adminto/waves.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/adminto/wow.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/adminto/jquery.nicescroll.js') }}"></script> --}}
+{{-- <script src="{{ asset('js/adminto/jquery.scrollTo.min.js') }}"></script> --}}
 <!-- responsive-table-->
 <script src="{{ asset('js/adminto/rwd-table.min.js') }}"></script>
 

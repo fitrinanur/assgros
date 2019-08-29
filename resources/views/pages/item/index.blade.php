@@ -1,58 +1,82 @@
-@extends('layouts.main') @section('content') {{--
+@extends('layouts.main')
+@section('content')
 <ol class="breadcrumb">
     <li class="breadcrumb-item">Home</li>
     <li class="breadcrumb-item active">Tambah Data Penjualan Barang</li>
-</ol> --}}
+</ol>
 <div class="row">
-    <div class="card-box" style="margin-top : 15px;">
-        <div class="header-title">
-            <h4>
-                <i class="fa fa-angle-double-right"> Form Data Penjualan Barang</i>
-            </h4>
-        </div>
-        <br/>
-        <div class="row">
-            @if (session('status'))
-            <div class="alert alert-success">
-                {{ session('status') }}
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-align-justify"></i> Tambah Data Transaksi
             </div>
-            @endif
-            <form action="{{route('barang.store')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label class="col-md-3 col-form-label" for="text-input">No. Faktur</label>
-                    <div class="col-md-9">
-                        <input type="text" id="text-input" name="no_faktur" class="form-control" placeholder="Nomer Faktur Penjualan">
+            <div class="card-block" style="padding: 10px;">
+                <form role="form" action="{{ route('transaction.create')}}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Kode Transaksi</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            name="transaction_code" placeholder="Masukan Kode Transaksi">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 col-form-label" for="email-input">Kode Barang</label>
-                    <div class="col-md-9">
-                        <input type="text" id="email-input" name="kode_barang" class="form-control" placeholder="Kode Barang">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 col-form-label" for="email-input">Nama Item</label>
-                    <div class="col-md-9">
-                        <input type="text" id="email-input" name="nama_barang" class="form-control" placeholder="Nama Barang">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-3 col-form-label" for="email-input">Kuantiti</label>
-                    <div class="col-md-9">
-                        <input type="number" id="email-input" name="qty" class="form-control" placeholder="Quantity">
-                    </div>
-                </div>
+                    <div class="form-group">
+                            <label for="">Barang</label>
+                            <select multiple="multiple" id="stuff_id" name="stuff_id[]"
+                                class="form-control test">
+                                @foreach ($stuffs as $key => $stuff)
+                                <option value="{{ $stuff->id }}" @if (old('stuff_id')==$stuff->id)
+                                    selected @endif>{{$stuff->stuff_code}} | {{ $stuff->stuff_name }}
+                                </option>
+                                @endforeach
+                            </select>
+                            <div class="form-group">
+                                <label for="nameInput">Nama Barang</label>
+                                <input type="text" name="stuff_name[]" required
+                                    class="form-control {{ $errors->has('stuff_name') ? ' is-invalid' : '' }}"
+                                    id="stuff_name" readonly>
+                                @if ($errors->has('stuff_name'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('stuff_name') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
-
-        <button type="submit" class="btn btn-sm btn-success">
-            <i class="fa fa-dot-circle-o"></i> Submit</button>
-        <button type="reset" class="btn btn-sm btn-danger">
-            <i class="fa fa-ban"></i> Reset</button>
-        <a class="btn btn-sm btn-primary pull-right" href={{ url ( 'barang') }}>
-            <i class="fa fa-ban"></i> Back</a>
-
-        </form>
     </div>
+
+
 </div>
 @endsection
+@push('scripts')
+<script type="application/javascript">
+    $(document).ready(function () {
+        $('.test').select2();
+        $('#stuff_id').change(function () {
+            if ($('#stuff_id :selected').length > 0) {
+                var selectednumbers = [];
+                $('#stuff_id :selected').each(function (i, selected) {
+                    selectednumbers[i] = $(selected).val();
+                });
+                $.ajax({
+                    url: '{{ url('stuff/stuffs.json')}}',
+                    data: {
+                        "_token": $('meta[name="csrf-token"]').attr('content'),
+                        'selectednumbers': selectednumbers
+                    },
+                    type: 'POST',
+                    success: function (data) {
+                        console.log(data);
+                        $('#stuff_name').val(data['name']);
+                    }
+                });
+            }
+        });
+        
+
+    });
+
+</script>
+
+@endpush
