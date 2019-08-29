@@ -11,13 +11,7 @@
 <div class="container-fluid">
     <div class="card-box">
         <h1 class="text-success">Contact</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quia labore, provident reiciendis voluptatum
-            libero a quisquam voluptas sunt perspiciatis, fuga totam? Perspiciatis voluptates nesciunt, commodi, necessitatibus
-            mollitia voluptas assumenda cum nostrum ipsa autem porro ipsam. Ipsum ex dolorem eius, voluptates vel et aliquam
-            animi tempora, ducimus architecto recusandae sed odio quasi ad repellendus vitae hic doloribus odit quisquam
-            rerum impedit numquam laborum. Sapiente in illo, assumenda voluptas numquam dolorem eius saepe officia, atque
-            maiores facere exercitationem velit ratione incidunt debitis? A placeat tempore temporibus saepe reiciendis reprehenderit
-            sint vitae non architecto delectus odio, impedit suscipit, ipsam provident. Animi, aperiam.</p>
+        <div class="mapouter" style="margin-left:80px"><div class="gmap_canvas"><iframe width="903" height="363" id="gmap_canvas" src="https://maps.google.com/maps?q=asgross%20permata%20pandean&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>Google Maps Generator by <a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{position:relative;text-align:right;height:363px;width:903px;}.gmap_canvas {overflow:hidden;background:none!important;height:363px;width:903px;}</style></div>
     </div>
 
 </div>
