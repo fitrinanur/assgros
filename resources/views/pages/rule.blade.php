@@ -31,7 +31,7 @@
                                 <button type="submit" style="margin-top: 30px" class="btn btn-primary">Proses</button>
                             </div>
                         </div>
-                        <div class="" style="background-color: #8dd0da; padding: 10px">
+                        {{-- <div class="" style="background-color: #8dd0da; padding: 10px">
                             @if($support) Info :
                             <br> Rata-rata Frequent Item Set Data = 
                             <br> Range minimal support : 20-40 , Range minimal confidence
@@ -39,7 +39,7 @@
                             <br> Semakin kecil nilai support dan confidence semakin banyak hasil keterkaitan barang @else
                             <p>Frequent Item Masih Kosong</p>
                             @endif
-                        </div>
+                        </div> --}}
                     </form>
 
                     <table class="table table-striped">
@@ -54,7 +54,7 @@
                         <tbody>
                             @foreach($rules as $rule)
                             <tr>
-                                <td>{{$rule->antecedent}}-->{{$rule->consequent}}</td>
+                                <td>{{$rule->antecedent}}</td>
                                 <td>{{$rule->consequent}}</td>
                                 <td>{{$rule->support}}</td>
                                 <td>{{$rule->confidence}}</td>

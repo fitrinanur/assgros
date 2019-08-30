@@ -37,14 +37,15 @@ class RuleController extends Controller
     public function info()
     {
         $frequents = $this->frequent->get();
-
         $avg_support = 0;
+    
         if ($frequents) {
             $avg_support = $frequents->avg('support');
         }
 
-        // dd($frequents->avg('support'));
+        // dd(avg('support'));
         return $avg_support;
+        //rata2 support dari tabel frequent
     }
 
     public function proses(Request $request)
@@ -60,9 +61,8 @@ class RuleController extends Controller
         $labels = [];
         $associator = new Apriori($request->min_sup/100, $request->min_conf/100);
         $associator->train($this->transaction->getData(), $labels);
-        // dd($associator);
+
         $rules = $associator->getRules();
-        
         $rules = collect($rules)->map(function($val){
             return [
                 'antecedent' => implode(',',$val['antecedent']),
@@ -80,7 +80,7 @@ class RuleController extends Controller
         $freqs = $this->transaction->freqItem($request->min_sup);
         $this->frequent->truncate();
         $this->frequent->insert($freqs);
-
+      
         return redirect('rule')->with('status', 'Rule berhasil diperbarui');
     }
 }
