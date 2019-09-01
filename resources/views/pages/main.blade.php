@@ -23,64 +23,37 @@
         </div>
     </div>
     <div class="col-md-6">
-        <section id="slide" style="max-width:1000px; max-height:400px !important;">
+        <section id="slide" style="margin-top:12px;max-width:1000px; max-height:400px !important;">
             <div class="bd-example">
                 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                         <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                         <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="4"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="5"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://dummyimage.com/600x400/c7c7c7/2f3033.png" class="d-block w-100" alt="...">
+                        <img src="{{asset('img/1.jpeg')}}" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block"
                                 style="background-color:#888888;opacity:0.8;">
-                                <h5>Gambar 1</h5>
-                                <p>Caption satu</p>
+                                <h5 style="color:white">Algoritma Apriori</h5>
+                                <p>Algoritma Market Base Analisis</p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="https://dummyimage.com/600x400/c7c7c7/2f3033.png" class="d-block w-100" alt="...">
+                            <img src="{{asset('img/2.jpg')}}" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block"
                                 style="background-color:#888888;opacity:0.8;">
-                                <h5>Gambar 1</h5>
-                                <p>Caption satu</p>
+                                <h5 style="color:white">Assgross Permata Pandean</h5>
+                                <p></p>
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img src="https://dummyimage.com/600x400/c7c7c7/2f3033.png" class="d-block w-100" alt="...">
+                            <img src="{{asset('img/3.jpg')}}" class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block"
                                 style="background-color:#888888;opacity:0.8;">
-                                <h5>Gambar 1</h5>
-                                <p>Caption satu</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://dummyimage.com/600x400/c7c7c7/2f3033.png" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block"
-                                style="background-color:#888888;opacity:0.8;">
-                                <h5>Gambar 1</h5>
-                                <p>Caption satu</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://dummyimage.com/600x400/c7c7c7/2f3033.png" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block"
-                                style="background-color:#888888;opacity:0.8;">
-                                <h5>Gambar 1</h5>
-                                <p>Caption satu</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://dummyimage.com/600x400/c7c7c7/2f3033.png" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block"
-                                style="background-color:#888888;opacity:0.8;">
-                                <h5>Gambar 1</h5>
-                                <p>Caption satu</p>
+                                <h5 style="color:white">Assgross Permata Pandean</h5>
+                                <p></p>
                             </div>
                         </div>
                     </div>
