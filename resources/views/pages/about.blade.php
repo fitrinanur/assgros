@@ -9,14 +9,17 @@
 </ol>
 <div class="container-fluid">
     <div class="card-box">
-        <h1 class="text-success">About</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit quia labore, provident reiciendis voluptatum
-            libero a quisquam voluptas sunt perspiciatis, fuga totam? Perspiciatis voluptates nesciunt, commodi, necessitatibus
-            mollitia voluptas assumenda cum nostrum ipsa autem porro ipsam. Ipsum ex dolorem eius, voluptates vel et aliquam
-            animi tempora, ducimus architecto recusandae sed odio quasi ad repellendus vitae hic doloribus odit quisquam
-            rerum impedit numquam laborum. Sapiente in illo, assumenda voluptas numquam dolorem eius saepe officia, atque
-            maiores facere exercitationem velit ratione incidunt debitis? A placeat tempore temporibus saepe reiciendis reprehenderit
-            sint vitae non architecto delectus odio, impedit suscipit, ipsam provident. Animi, aperiam.</p>
+        <h1 class="text-success">Algoritma Apriori</h1>
+        <p>Algoritma Apriori pertama kali diperkenalkan oleh Agrawal dan Shrikant <strong>(1994)</strong> yang berguna untuk menemukan <i>frequent item set</i> pada sekumpulan data. 
+            Selain dari apriori terdapat beberapa algoritma association rule lainnya seperti <i>PredictiveApriori</i>, <i>Tertius</i> dan <i>Filtered Associator</i> <strong>(Aher dan Lobo, 2012:48)</strong></p>
+        <p>Algoritma Apriori adalah bagian dari sebuah metode Association Rule, yang berfungsi untuk menemukan kombinasi item berdasarkan barang yang dibeli oleh pelanggan. Berikut adalah jenis-jenis aturan asosiasi :
+            <ol>
+                <li>Apriori</li>
+                <li>Generalized Rule Induction</li>
+                <li>Algoritma Hash Based</li>
+            </ol>
+        </p>
+        <p>Association rule merupakan teknik data mining untuk menemukan aturan asosiatif antara suatu kombinasi item.contohnya analisis pembelian di suatu pasar swalayan, dapat diketahui berapa besar kemungkinan seorang pelanggan membeli roti bersamaan dengan susu. Dengan kondisi tersebut pemilik swalayan dapat mengatur penempatan barangnya, atau merancang promosi pemasaran dengan memakai kupon diskon untuk kombinasi barang tertentu.</p>
     </div>
 
 </div>
