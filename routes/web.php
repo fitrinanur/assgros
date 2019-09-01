@@ -53,3 +53,4 @@ Route::get('stuff/destroy/{id}', 'StuffController@destroy')->name('stuff.delete'
 
 Route::get('report', 'ReportController@index')->name('report.index');
 Route::get('report/download','ReportController@export')->name('report.export');
+Route::get('/ajax-subcat/stuffs','TransactionController@getStuff') ;

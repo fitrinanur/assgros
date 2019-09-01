@@ -78,15 +78,18 @@ class TransactionController extends Controller
     public function edit($id)
     {
         $transaction = $this->transaction->find($id);
-        return view('pages.transaction-edit', ['transaction' => $transaction]);
+        $stuffs = Stuff::all();
+        return view('pages.transaction-edit', ['transaction' => $transaction,'stuffs'=> $stuffs]);
     }
 
     public function update($id, Request $request)
     {
+        // dd($request->all());
         $transaction = $this->transaction->find($id);
-        $transaction->no_faktur = $request->no_faktur;
-        $transaction->kode_barang = $request->kode_barang;
-        $transaction->nama_barang = $request->nama_barang;
+        
+        $transaction->code = $request->code;
+        $transaction->kode_barang = $request->stuff_kode;
+        $transaction->nama_barang = $request->stuff_name;
         $transaction->save();
         return redirect('transaction')->with('status', 'Update barang berhasil');
     }
@@ -107,6 +110,19 @@ class TransactionController extends Controller
         }
       
         return ['name'=>$name]; 
+    }
+
+    public function getStuff()
+    {
+       
+        $stuff_kode = request()->get('stuff_kode');
+        $stuffs = Stuff::where('stuff_code',$stuff_kode)->get();
+        $name = '';
+        foreach($stuffs as $stuff){
+            $name  = $stuff->stuff_name;
+        }
+      
+        return ['name'=> $name]; 
     }
 }
 
