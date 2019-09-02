@@ -14,8 +14,8 @@
                     <bold>Tutorial : </bold>
                 </p>
                 <ol>
-                    <li>Masukan data transaksi sebagai data training dengan cara import file <i>excel</i>
-                        menggunakan <i>extensi .csv</i> pada menu Master-Penjualan Barang</li>
+                    <li>Masukkan data barang pada menu Data Barang</li>
+                    <li>Masukan data transaksi sebagai Data transaksi pada menu data transaksi</li>
                     <li>Atur <i>Minimum Support</i> dan <i>Minimum Confidence</i> pada menu Analisa-Rule</li>
                     <li>Menu simulasi digunakan penemuan rekomendasi yang sesuai dengan rule yang ada</li>
                 </ol>
