@@ -26,7 +26,7 @@
                                 <td>{{$freq->kode_barang}}</td>
                                 <td>{{$freq->nama_barang}}</td>
                                 <td>{{$freq->freq}}</td>
-                                <td>{{$freq->support}}</td>
+                                <td>{{($freq->support*100)}}%</td>
                             </tr>
                             @endforeach
                         </tbody>
