@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Transaction;
-use App\Library\BarangImport;
+use App\Library\TransactionImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Stuff;
@@ -67,12 +67,19 @@ class TransactionController extends Controller
         })->export('csv');
     }
 
-    public function doImport(BarangImport $import)
+    public function doImport(Request $request)
     {
-        $results = $import->get();
-        Transaction::truncate();
-        Transaction::insert($results->toArray());
-        return redirect('transaction')->with('status', 'Import barang berhasil');
+        $this->validate($request, [
+            'file' => 'required|mimes:xls,xlsx'
+        ]);
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file'); //GET FILE
+            Transaction::truncate();
+            Excel::import(new TransactionImport, $file); //IMPORT FILE 
+            return redirect('transaction')->with(['success' => 'Upload success']);
+        }  
+        return redirect()->back()->with(['error' => 'Please choose file before']);
     }
 
     public function edit($id)

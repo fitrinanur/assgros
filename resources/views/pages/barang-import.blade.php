@@ -9,7 +9,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card-box">
-                    <form action="{{url('barang/import')}}" enctype="multipart/form-data" method="post" class="form-horizontal">
+                    <form action="{{url('transaction/import')}}" enctype="multipart/form-data" method="post" class="form-horizontal">
+                        @csrf
                         <div class="header-text">
                             <h4><i class="fa fa-align-justify"></i> Import Data Barang</h4>
                         </div>
@@ -20,14 +21,14 @@
                                     <span class="input-group-addon">
                                         <i class="fa fa-file"></i>
                                     </span>
-                                    <input type="file" id="input1-group1" name="import" class="form-control" placeholder="file"> {{csrf_field()}}
+                                    <input type="file" id="input1-group1" name="file" class="form-control" placeholder="file"> {{csrf_field()}}
                                 </div>
                             </div>
                         </div>
 
                         <button type="submit" class="btn btn-sm btn-success">
                             <i class="fa fa-dot-circle-o"></i> Import</button>
-                        <a href="{{ url('barang') }}" class="btn btn-sm btn-inverse pull-right">
+                        <a href="{{ url('transaction') }}" class="btn btn-sm btn-inverse pull-right">
                             <i class="fa fa-dot-circle-o"></i> Cancel</a>
 
                     </form>

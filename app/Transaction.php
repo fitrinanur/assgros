@@ -7,7 +7,8 @@ class Transaction extends Model
 {
     protected $table = 'transactions';
     protected $fillable = ['kode_barang', 'code', 'nama_barang'];
-
+    protected $guarded = [];
+    
     public function getData()
     {
         $data = Transaction::groupBy('code')->selectRaw('group_concat(nama_barang) as group_nama_barang, group_concat(kode_barang) as group_kode_barang')

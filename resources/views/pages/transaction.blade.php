@@ -15,8 +15,8 @@
     </div>
     <div class="col-lg-6">
         <div class="button-group pull-right">
-            {{-- <a href="{{url('transaction/import')}}" class="btn btn-primary" style="margin-bottom: 10px"><i
-                    class="fa fa-file mr-1"></i> Import Data</a> --}}
+            <a href="{{ url('transaction/import') }}" class="btn btn-primary" style="margin-bottom: 10px"><i
+                    class="fa fa-file mr-1"></i> Import Data</a>
             {{-- <a href="{{url('transaction/export')}}" class="btn btn-success" style="margin-bottom: 10px"><i
                     class="fa fa-print mr-1"></i> Print Data</a> --}}
         </div>
