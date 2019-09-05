@@ -20,7 +20,7 @@
                     </button>
                     <button type="submit" name="type" value="frequent" class="btn btn-info"
                         style="float:right;margin:10px">
-                        <i class="fa fa-print"></i> Download Data Frequent
+                        <i class="fa fa-print"></i> Download Data Frequen
                     </button>
                     <button type="submit" name="type" value="transactions" class="btn btn-info"
                         style="float:right;margin:10px">

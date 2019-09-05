@@ -25,13 +25,16 @@
                     </li>
                    
                     <li class="has-submenu {{ Request::is('rule','rule/*','frequent','frequent/*') ? "active" : "" }}">
-                        <a href="#"><i class="zmdi zmdi-account-box-o"></i><span> Rule </span> </a>
+                        <a href="#"><i class="zmdi zmdi-account-box-o"></i><span> Hasil Apriori </span> </a>
                         <ul class="submenu">
                             <li class="{{ Request::is('rule','rule/*') ? "active" : "" }}">
-                            <a href="{{ url('rule')}}">Rule</a>
+                            <a href="{{ url('rule')}}">Aturan Asosiasi</a>
                             </li>
                             <li class="{{ Request::is('frequent','frequent/*') ? "active" : "" }}">
-                                <a href="{{ url('frequent') }}">Frequency</a>
+                                <a href="{{ url('frequent') }}">Frequensi</a>
+                            </li>
+                            <li class="{{ Request::is('frequent','frequent/*') ? "active" : "" }}">
+                                <a href="{{ url('simulasi') }}">Simulasi Perhitungan</a>
                             </li>
                         </ul>
                     </li>
