@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Barang;
+use App\Transaction;
 use App\Frequent;
 use App\Setting;
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ use Phpml\Association\Apriori;
 
 class SimulasiController extends Controller
 {
-    private $barang;
+    private $transaction;
     private $setting;
     private $frequent;
 
@@ -19,12 +19,12 @@ class SimulasiController extends Controller
      *
      * @return void
      */
-    public function __construct(Barang $barang, Setting $setting, Frequent $frequent)
+    public function __construct(Transaction $transaction, Setting $setting, Frequent $frequent)
     {
-        // ambil data barang,setting,frequent
+        // ambil data transaksi,setting,frequent
         //login only
         $this->middleware('auth');
-        $this->barang = $barang;
+        $this->transaction = $transaction;
         $this->setting = $setting;
         $this->frequent = $frequent;
     }
@@ -36,7 +36,7 @@ class SimulasiController extends Controller
      */
     public function index()
     {
-        $data['barangs'] = $this->barang->groupBy('kode_barang')->orderBy('kode_barang')->get();
+        $data['transactions'] = $this->transaction->groupBy('kode_barang')->orderBy('kode_barang')->get();
         $predicts = [];
         if (session('result')['predicts']) {
             $predicts = session('result')['predicts'];
@@ -49,15 +49,19 @@ class SimulasiController extends Controller
     public function proses(Request $request)
     {
         $barangs = $request->barang;
+        // dd($barangs);
 
         $min_conf = $this->setting->find('min_conf')->value;
         $min_sup = $this->setting->find('min_sup')->value;
         $associator = new Apriori($min_sup / 100, $min_conf / 100);
+        // dd($associator);
         //get data sample dari import barang
-        $associator->train($this->barang->getData(), []);
+        $associator->train($this->transaction->getData(), []);
+       
         // combination
         $predicts = [];
         $num = count($barangs);
+        // dd($num);
         $total = pow(2, $num);
         for ($i = 0; $i < $total; $i++) {
             for ($j = 0; $j < $num; $j++) {

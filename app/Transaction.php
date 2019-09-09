@@ -7,24 +7,34 @@ class Transaction extends Model
 {
     protected $table = 'transactions';
     protected $fillable = ['kode_barang', 'code', 'nama_barang'];
-    protected $guarded = [];
+    // protected $guarded = [];
     
     public function getData()
     {
         $data = Transaction::groupBy('code')->selectRaw('group_concat(nama_barang) as group_nama_barang, group_concat(kode_barang) as group_kode_barang')
-            ->get()->map(function($row) {
+            ->get()
+            ->map(function($row) {
                 $group_nama_barang = explode(',',$row['group_nama_barang']);
                 $group_kode_barang = explode(',',$row['group_kode_barang']);
                 $data = [];
                 foreach ($group_nama_barang as $key => $value) {
+                    // if(!array_key_exists($key,$group_kode_barang)){
+                    //     print_r($group_kode_barang);
+                    //     dd($key);
+                    // };
                     $value = trim($value);
+                    // dd($value);
                     $kode = trim($group_kode_barang[$key]);
+                    //  dd($kode);
                     $data[] = "$kode-$value";
+                   
                 }
+                // dd($data);
                 return array_values(array_sort($data, function($value) {
                     return $value;
                 }));
             })->toArray();
+        // dd($data);
         return $data;
     }
 

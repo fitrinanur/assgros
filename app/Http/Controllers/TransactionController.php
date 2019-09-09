@@ -54,7 +54,7 @@ class TransactionController extends Controller
 
     public function import()
     {
-        return view('pages.barang-import');
+        return view('pages.transaction-import');
     }
 
     public function export()

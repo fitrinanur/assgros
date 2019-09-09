@@ -34,7 +34,7 @@
                                 <a href="{{ url('frequent') }}">Frequensi</a>
                             </li>
                             <li class="{{ Request::is('frequent','frequent/*') ? "active" : "" }}">
-                                <a href="{{ url('simulasi') }}">Simulasi Perhitungan</a>
+                                <a href="{{ url('simulasi') }}">Simulasi</a>
                             </li>
                         </ul>
                     </li>
