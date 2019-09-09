@@ -64,7 +64,7 @@
                             <td>{{$freq->kode_barang}}</td>
                             <td>{{$freq->nama_barang}}</td>
                             <td>{{$freq->freq}}</td>
-                            <td>{{$freq->support}}</td>
+                            <td>{{($freq->support*100)}} %</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -83,7 +83,7 @@
                         @foreach($iterations as $iteration)
                         <tr>
                             <td> { {{implode(' , ', $iteration['item'])}} }</td>
-                            <td>{{number_format($iteration['support'], 2)}}</td>
+                            <td>{{(number_format($iteration['support'], 2)*100)}} %</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -103,8 +103,8 @@
                         @foreach($rules as $rule)
                         <tr>
                             <td>{ {{implode(' , ', $rule['antecedent'])}} } &nbsp;&nbsp;&nbsp; -----> { {{implode(' , ', $rule['consequent'])}} }</td>
-                            <td>{{number_format($rule['support'], 2)}}</td>
-                            <td>{{number_format($rule['confidence'], 2)}}</td>
+                            <td>{{(number_format($rule['support'], 2)*100)}}%</td>
+                            <td>{{(number_format($rule['confidence'], 2)*100)}}%</td>
                         </tr>
                         @endforeach
                     </tbody>
