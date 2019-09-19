@@ -64,6 +64,7 @@ class RuleController extends Controller
 
         $rules = $associator->getRules();
         $rules = collect($rules)->map(function($val){
+           
             return [
                 'antecedent' => implode(',',$val['antecedent']),
                 'consequent' => implode(',',$val['consequent']),
@@ -71,7 +72,7 @@ class RuleController extends Controller
                 'confidence' => $val['confidence']
             ];
         })->toArray();
-        
+        // dd($rules);
        
 
         $this->rule->truncate();

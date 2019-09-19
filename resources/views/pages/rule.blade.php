@@ -56,8 +56,8 @@
                             <tr>
                                 <td>{{$rule->antecedent}}</td>
                                 <td>{{$rule->consequent}}</td>
-                                <td>{{($rule->support*100)}}%</td>
-                                <td>{{($rule->confidence*100)}}%</td>
+                                <td>{{(number_format($rule->support,3)*100)}}%</td>
+                                <td>{{(number_format($rule->confidence,3)*100)}}%</td>
                             </tr>
                             @endforeach
                         </tbody>
